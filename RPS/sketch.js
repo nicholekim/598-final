@@ -17,6 +17,9 @@ function preload() {
   Scissors2 = loadImage('Scissors2.png'); // image of scissors (user's perspective) preloaded
   Rock2 = loadImage('Rock2.png'); // image of rock (user's perspective) preloaded
   Paper2 = loadImage('Paper2.png'); // image of paper (user's perspective) preloaded
+  Scissors3 = loadImage('Scissors3.png'); // image of scissors (for button below) preloaded
+  Rock3 = loadImage('Rock3.png'); // image of rock (for button below) preloaded
+  Paper3 = loadImage('Paper3.png'); // image of paper (for button below) preloaded
   win = loadImage('win.png'); // image of "win" sign preloaded
   lost = loadImage('lost.png'); // image of "lost" sign preloaded
 }
@@ -86,17 +89,14 @@ function menu() {
   fill(255);
   text("HOW TO PLAY", 800 + 10, 520 + 30);
   fill(0);
-  text("Choose your move!", 280, 500);
-  fill('green');
-  rect(150, 520, 100, 50);
-  fill('orange');
-  rect(300, 520, 100, 50);
-  fill('red');
-  rect(450, 520, 100, 50);
+  text("Choose your move!", 280, 400);
+  image(Rock3, 150, 410, 119, 236);
+  image(Paper3, 300, 410, 119, 236);
+  image(Scissors3, 450, 410, 119, 236);
   fill(255);
-  text("Rock", 150 + 25, 520 + 30);
-  text("Paper", 300 + 25, 520 + 30);
-  text("Scissor", 450 + 25, 520 + 30);
+  text("Rock", 150 + 30, 520 + 40);
+  text("Paper", 300 + 30, 520 + 40);
+  text("Scissor", 450 + 30, 520 + 40);
 }
 
 // function that is called when "reset" button is pressed
@@ -118,17 +118,17 @@ function overTutorialButton() {
 
 // function that determines where mouseX and mouseY should be to press on Rock
 function overRock() {
-  return mouseX > 150 && mouseX < 150 + 100 && mouseY > 520 && mouseY < 520 + 50;
+  return mouseX > 150 && mouseX < 150 + 100 && mouseY > 440 && mouseY < 600;
 }
 
 // function that determines where mouseX and mouseY should be to press on Paper
 function overPaper() {
-  return mouseX > 300 && mouseX < 300 + 100 && mouseY > 520 && mouseY < 520 + 50;
+  return mouseX > 300 && mouseX < 300 + 100 && mouseY > 410 && mouseY < 600;
 }
 
 // function that determines where mouseX and mouseY should be to press on Scissors
 function overScissors() {
-  return mouseX > 450 && mouseX < 450 + 100 && mouseY > 520 && mouseY < 520 + 50;
+  return mouseX > 450 && mouseX < 450 + 100 && mouseY > 440 && mouseY < 600;
 }
 
 // function that is executed when mouse button is pressed.
