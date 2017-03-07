@@ -45,11 +45,11 @@ function draw() {
 
   if (user_count == playCount) {
     winSize = random(5, 500);
-    image(win, random(-100, 1200), random(-100, 600), winSize, winSize * (106/190));
+    image(win, random(-100, 1200), random(-100, 600), winSize, winSize * (106 / 190));
   }
-  if(computer_count == playCount) {
+  if (computer_count == playCount) {
     lostSize = random(5, 500);
-    image(lost, random(-100, 1200), random(-100, 600), lostSize, lostSize * (119/190));
+    image(lost, random(-100, 1200), random(-100, 600), lostSize, lostSize * (119 / 190));
   }
 }
 
@@ -127,7 +127,7 @@ function mousePressed() {
   if (overTutorialButton()) {
     fill(0);
     rect(300, 100, 600, 300);
-    fill(100);
+    fill('gray');
     rect(500, 350, 200, 50);
     fill(255);
     textSize(18);
