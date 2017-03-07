@@ -34,6 +34,23 @@ function setup() {
 
 function draw() {
   menu();
+  for (i = 0; i < user_count; i++) {
+    fill('red');
+    ellipse(i * 50 + 100, 100, 30, 30);
+  }
+  for (i = 0; i < computer_count; i++) {
+    fill('red');
+    ellipse(i * 50 + 900, 100, 30, 30);
+  }
+
+  if (user_count == playCount) {
+    winSize = random(5, 500);
+    image(win, random(-100, 1200), random(-100, 600), winSize, winSize * (106/190));
+  }
+  if(computer_count == playCount) {
+    lostSize = random(5, 500);
+    image(lost, random(-100, 1200), random(-100, 600), lostSize, lostSize * (119/190));
+  }
 }
 
 function menu() {
