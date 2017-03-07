@@ -38,8 +38,8 @@ function mix() {
 
 function setup() {
   createCanvas(1200, 600); // canvas size set to 1200 * 600
-  background('skyblue'); // background color set to skyblue
-  textFont('Helvetica'); // Font of the texts set to Helvetica
+  background('#2D4E3D'); // background color set to chalkboard color
+  textFont('Chalkduster'); // Font of the texts set to Chalkduster
 }
 
 function draw() {
@@ -51,7 +51,7 @@ function draw() {
   }
   for (i = 0; i < computer_count; i++) { // a for loop that moves from 0 till the value of the variable computer_count
     fill('red'); // sets the filling color to red
-    ellipse(i * 50 + 900, 100, 30, 30); // draws ellipse(s) based on the value of the user_count
+    ellipse(i * 50 + 820, 100, 30, 30); // draws ellipse(s) based on the value of the user_count
   }
 
   if (user_count == playCount) { // if user_count value equals to the value of playCount
@@ -67,10 +67,10 @@ function draw() {
 // menu function that creates the player names, rock paper scissors, "Reset" button, and "How to Play" button.
 function menu() {
   noStroke();
-  fill(0);
-  textSize(25);
+  fill(255);
+  textSize(30);
   text("Player 1: " + userName, 100, 50); // player 1 name
-  text("Player 2: Computer", 900, 50); // player 2 name
+  text("Player 2: Computer", 800, 50); // player 2 name
   if (overResetButton()) {
     fill('black');
   } else {
@@ -87,24 +87,24 @@ function menu() {
   }
   rect(840, 520, 150, 50);
   fill(255);
-  text("HOW TO PLAY", 840 + 20, 520 + 30);
-  fill(0);
-  text("Choose your move!", 280, 405);
+  text("HOW TO PLAY", 840 + 15, 520 + 30);
+  text("Choose your", 50, 500);
+  text("move!", 50, 525);
   image(Rock3, 150, 410, 119, 236);
   image(Paper3, 300, 410, 119, 236);
   image(Scissors3, 450, 410, 119, 236);
-  fill(255);
-  text("Rock", 150 + 30, 520 + 40);
+  textSize(14);
+  text("Rock", 150 + 35, 520 + 40);
   text("Scissor", 450 + 30, 520 + 40);
   fill(0);
-  text("Paper", 300 + 30, 520 + 40);
+  text("Paper", 300 + 35, 520 + 40);
 }
 
 // function that is called when "reset" button is pressed
 function reset() {
   user_count = 0;
   computer_count = 0;
-  background('skyblue');
+  background('#2D4E3D');
 }
 
 // function that determines where mouseX and mouseY should be to press on Reset button
@@ -136,7 +136,7 @@ function overScissors() {
 // includes executing computer's move and comparing the user's move with each other to determine the winner & loser
 // also includes resetting the game & viewing the Tutorial
 function mousePressed() {
-  background('skyblue');
+  background('#2D4E3D');
 
   // resets the game
   if (overResetButton()) {
@@ -150,21 +150,21 @@ function mousePressed() {
     fill('gray');
     rect(500, 350, 200, 50);
     fill(255);
-    textSize(18);
-    text("Welcome to Rock Paper Scissors!", 350, 150);
-    text("This game is created as the final project of HCDE 598.", 350, 175);
-    text("Press Rock, Paper, or Scissor to make your move.", 350, 200);
-    text("When you press, computer will make its move randomly.", 350, 225);
-    text("Good luck!", 350, 250);
-    text("Creators: Sang Woo Nam & Nichole Kim", 350, 300);
+    textSize(16);
+    text("Welcome to Rock Paper Scissors!", 320, 150);
+    text("This game is created as the final project of HCDE 598.", 320, 175);
+    text("Press Rock, Paper, or Scissor to make your move.", 320, 200);
+    text("When you press, computer will make its move randomly.", 320, 225);
+    text("Good luck!", 320, 250);
+    text("Creators: Sang Woo Nam & Nichole Kim", 320, 300);
     text("<EXIT TO GAME>", 525, 380);
   }
 
   // lists all 9 possibilities that can happen (3 moves from user * 3 moves from computer)
   // determines the winner & loser for each
-  fill(0);
+  fill(255);
   mix();
-  textSize(25);
+  textSize(20);
   if (overRock()) {
     if (computerChoice === "scissors") {
       text("Your move: rock", 400, 75);
