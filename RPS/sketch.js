@@ -11,6 +11,8 @@ function preload() {
   Scissors2 = loadImage('Scissors2.png');
   Rock2 = loadImage('Rock2.png');
   Paper2 = loadImage('Paper2.png');
+  win = loadImage('win.png');
+  lost = loadImage('lost.png');
 }
 
 function mix() {
@@ -32,14 +34,6 @@ function setup() {
 
 function draw() {
   menu();
-  for (i = 0; i < user_count; i++) {
-    fill('red');
-    ellipse(i * 50 + 100, 100, 30, 30);
-  }
-  for (i = 0; i < computer_count; i++) {
-    fill('red');
-    ellipse(i * 50 + 900, 100, 30, 30);
-  }
 }
 
 function menu() {
@@ -116,6 +110,8 @@ function mousePressed() {
   if (overTutorialButton()) {
     fill(0);
     rect(300, 100, 600, 300);
+    fill(100);
+    rect(500, 350, 200, 50);
     fill(255);
     textSize(18);
     text("Welcome to Rock Paper Scissors!", 350, 150);
@@ -124,7 +120,7 @@ function mousePressed() {
     text("When you press, computer will make its move randomly.", 350, 225);
     text("Good luck!", 350, 250);
     text("Creators: Sang Woo Nam & Nichole Kim", 350, 300);
-    text("<EXIT TO GAME>", 550, 380);
+    text("<EXIT TO GAME>", 525, 380);
   }
   if (overRock()) {
     if (computerChoice === "scissors") {
@@ -138,7 +134,6 @@ function mousePressed() {
         user_count++;
         textSize(50);
         text("YOU WIN!", 500, 500);
-        
       } else {
         user_count++;
       }
