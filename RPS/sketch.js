@@ -1,8 +1,10 @@
 var userName = prompt("Welcome to Rock Paper Scissors! What is your name?");
-var playCount = prompt("How many times do you want to play?");
+var playCount = prompt("How many times should the winner win? Enter a number.");
 var computerChoice;
 var user_count = 0;
 var computer_count = 0;
+var userImageX;
+var computerImageX;
 
 function preload() {
   Scissors = loadImage('Scissors.png');
@@ -27,6 +29,7 @@ function mix() {
 function setup() {
   createCanvas(1200, 600);
   background('skyblue');
+  textFont('Helvetica');
 }
 
 function draw() {
@@ -56,14 +59,14 @@ function menu() {
   fill(255);
   textSize(16);
   text("RESET", 950 + 25, 520 + 30);
-  if (overContinueButton()) {
+  if (overTutorialButton()) {
     fill('black');
   } else {
     fill('gray');
   }
   rect(800, 520, 100, 50);
   fill(255);
-  text("CONTINUE", 800 + 10, 520 + 30);
+  text("HOW TO PLAY", 800 + 10, 520 + 30);
   fill(0);
   text("Choose your move!", 280, 500);
   fill('green');
@@ -88,7 +91,7 @@ function overResetButton() {
   return mouseX > 950 && mouseX < 950 + 100 && mouseY > 520 && mouseY < 520 + 50;
 }
 
-function overContinueButton() {
+function overTutorialButton() {
   return mouseX > 800 && mouseX < 800 + 100 && mouseY > 520 && mouseY < 520 + 50;
 }
 
@@ -111,6 +114,19 @@ function mousePressed() {
   textSize(25);
   if (overResetButton()) {
     reset();
+  }
+  if (overTutorialButton()) {
+    fill(0);
+    rect(300, 100, 600, 300);
+    fill(255);
+    textSize(18);
+    text("Welcome to Rock Paper Scissors!", 350, 150);
+    text("This game is created as the final project of HCDE 598.", 350, 175);
+    text("Press Rock, Paper, or Scissor to make your move.", 350, 200);
+    text("When you press, computer will make its move randomly.", 350, 225);
+    text("Good luck!", 350, 250);
+    text("Creators: Sang Woo Nam & Nichole Kim", 350, 300);
+    text("<EXIT TO GAME>", 550, 380);
   }
   if (overRock()) {
     if (computerChoice === "scissors") {
