@@ -76,27 +76,28 @@ function menu() {
   } else {
     fill('gray'); // allows the color change when mouse is hovered
   }
-  rect(950, 520, 100, 50);
+  rect(1050, 520, 100, 50);
   fill(255);
   textSize(16);
-  text("RESET", 950 + 25, 520 + 30);
+  text("RESET", 1050 + 25, 520 + 30);
   if (overTutorialButton()) {
     fill('black');
   } else {
     fill('gray'); // allows the color change when mouse is hovered
   }
-  rect(800, 520, 100, 50);
+  rect(840, 520, 150, 50);
   fill(255);
-  text("HOW TO PLAY", 800 + 10, 520 + 30);
+  text("HOW TO PLAY", 840 + 20, 520 + 30);
   fill(0);
-  text("Choose your move!", 280, 400);
+  text("Choose your move!", 280, 405);
   image(Rock3, 150, 410, 119, 236);
   image(Paper3, 300, 410, 119, 236);
   image(Scissors3, 450, 410, 119, 236);
   fill(255);
   text("Rock", 150 + 30, 520 + 40);
-  text("Paper", 300 + 30, 520 + 40);
   text("Scissor", 450 + 30, 520 + 40);
+  fill(0);
+  text("Paper", 300 + 30, 520 + 40);
 }
 
 // function that is called when "reset" button is pressed
@@ -108,12 +109,12 @@ function reset() {
 
 // function that determines where mouseX and mouseY should be to press on Reset button
 function overResetButton() {
-  return mouseX > 950 && mouseX < 950 + 100 && mouseY > 520 && mouseY < 520 + 50;
+  return mouseX > 1050 && mouseX < 1050 + 100 && mouseY > 520 && mouseY < 520 + 50;
 }
 
 // function that determines where mouseX and mouseY should be to press on How to Play button
 function overTutorialButton() {
-  return mouseX > 800 && mouseX < 800 + 100 && mouseY > 520 && mouseY < 520 + 50;
+  return mouseX > 840 && mouseX < 840 + 150 && mouseY > 520 && mouseY < 520 + 50;
 }
 
 // function that determines where mouseX and mouseY should be to press on Rock
@@ -166,11 +167,12 @@ function mousePressed() {
   textSize(25);
   if (overRock()) {
     if (computerChoice === "scissors") {
-      text("Your move: rock", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("User wins this round!", 500, 150);
-      image(Rock2, 25, 200);
-      image(Scissors, 675, 200);
+      text("Your move: rock", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("User wins this round!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Rock2, 25, 175);
+      image(Scissors, 675, 175);
 
       if (user_count == playCount - 1) {
         user_count++;
@@ -180,11 +182,12 @@ function mousePressed() {
         user_count++;
       }
     } else if (computerChoice === "paper") {
-      text("Your move: rock", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("Computer wins this round!", 500, 150);
-      image(Rock2, 25, 200);
-      image(Paper, 675, 200);
+      text("Your move: rock", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("Computer wins this round!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Rock2, 25, 175);
+      image(Paper, 675, 175);
 
       if (computer_count == playCount - 1) {
         computer_count++;
@@ -194,19 +197,21 @@ function mousePressed() {
         computer_count++;
       }
     } else {
-      text("Your move: rock", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("It's a tie!", 500, 150);
-      image(Rock2, 25, 200);
-      image(Rock, 675, 200);
+      text("Your move: rock", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("It's a tie!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Rock2, 25, 175);
+      image(Rock, 675, 175);
     }
   } else if (overPaper()) {
     if (computerChoice === "rock") {
-      text("Your move: paper", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("User wins this round!", 500, 150);
-      image(Paper2, 25, 200);
-      image(Rock, 675, 200);
+      text("Your move: paper", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("User wins this round!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Paper2, 25, 175);
+      image(Rock, 675, 175);
 
       if (user_count == playCount - 1) {
         user_count++;
@@ -216,11 +221,12 @@ function mousePressed() {
         user_count++;
       }
     } else if (computerChoice === "scissors") {
-      text("Your move: paper", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("Computer wins this round!", 500, 150);
-      image(Paper2, 25, 200);
-      image(Scissors, 675, 200);
+      text("Your move: paper", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("Computer wins this round!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Paper2, 25, 175);
+      image(Scissors, 675, 175);
 
       if (computer_count == playCount - 1) {
         computer_count++;
@@ -230,19 +236,21 @@ function mousePressed() {
         computer_count++;
       }
     } else {
-      text("Your move: paper", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("It's a tie!", 500, 150);
-      image(Paper2, 25, 200);
-      image(Paper, 675, 200);
+      text("Your move: paper", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("It's a tie!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Paper2, 25, 175);
+      image(Paper, 675, 175);
     }
   } else if (overScissors()) {
     if (computerChoice === "paper") {
-      text("Your move: scissors", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("User wins this round!", 500, 150);
-      image(Scissors2, 25, 200);
-      image(Paper, 675, 200);
+      text("Your move: scissors", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("User wins this round!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Scissors2, 25, 175);
+      image(Paper, 675, 175);
 
       if (user_count == playCount - 1) {
         user_count++;
@@ -252,11 +260,12 @@ function mousePressed() {
         user_count++;
       }
     } else if (computerChoice === "rock") {
-      text("Your move: scissors", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("Computer wins this round!", 500, 150);
-      image(Scissors2, 25, 200);
-      image(Rock, 675, 200);
+      text("Your move: scissors", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("Computer wins this round!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Scissors2, 25, 175);
+      image(Rock, 675, 175);
 
       if (computer_count == playCount - 1) {
         computer_count++;
@@ -266,11 +275,12 @@ function mousePressed() {
         computer_count++;
       }
     } else {
-      text("Your move: scissors", 500, 75);
-      text("Computer's move: " + computerChoice, 500, 100);
-      text("It's a tie!", 500, 150);
-      image(Scissors2, 25, 200);
-      image(Scissors, 675, 200);
+      text("Your move: scissors", 400, 75);
+      text("Computer's move: " + computerChoice, 400, 100);
+      text("It's a tie!", 400, 150);
+      text("Choose a move to continue playing", 400, 175);
+      image(Scissors2, 25, 175);
+      image(Scissors, 675, 175);
     }
   }
 }
