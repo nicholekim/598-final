@@ -3,8 +3,6 @@ var playCount = prompt("How many times should the winner win? Enter a number.");
 var computerChoice;
 var user_count = 0;
 var computer_count = 0;
-var userImageX;
-var computerImageX;
 
 function preload() {
   Scissors = loadImage('Scissors.png');
@@ -137,8 +135,10 @@ function mousePressed() {
       image(Scissors, 675, 200);
 
       if (user_count == playCount - 1) {
-        text("WIN", 500, 500);
         user_count++;
+        textSize(50);
+        text("YOU WIN!", 500, 500);
+        
       } else {
         user_count++;
       }
@@ -150,8 +150,9 @@ function mousePressed() {
       image(Paper, 675, 200);
 
       if (computer_count == playCount - 1) {
-        text("LOSE", 500, 500);
         computer_count++;
+        textSize(50);
+        text("SORRY, YOU LOSE :(", 500, 500);
       } else {
         computer_count++;
       }
@@ -171,8 +172,9 @@ function mousePressed() {
       image(Rock, 675, 200);
 
       if (user_count == playCount - 1) {
-        text("WIN", 500, 500);
         user_count++;
+        textSize(50);
+        text("YOU WIN!", 500, 500);
       } else {
         user_count++;
       }
@@ -184,8 +186,9 @@ function mousePressed() {
       image(Scissors, 675, 200);
 
       if (computer_count == playCount - 1) {
-        text("LOSE", 500, 500);
         computer_count++;
+        textSize(50);
+        text("SORRY, YOU LOSE :(", 500, 500);
       } else {
         computer_count++;
       }
@@ -205,8 +208,9 @@ function mousePressed() {
       image(Paper, 675, 200);
 
       if (user_count == playCount - 1) {
-        text("WIN", 500, 500);
         user_count++;
+        textSize(50);
+        text("YOU WIN!", 500, 500);
       } else {
         user_count++;
       }
@@ -218,8 +222,9 @@ function mousePressed() {
       image(Rock, 675, 200);
 
       if (computer_count == playCount - 1) {
-        text("LOSE", 500, 500);
         computer_count++;
+        textSize(50);
+        text("SORRY, YOU LOSE :(", 500, 500);
       } else {
         computer_count++;
       }
@@ -232,189 +237,3 @@ function mousePressed() {
     }
   }
 }
-
-
-
-
-
-/*
-var userName = prompt("What is your name?");
-var user_count = 0;
-var computer_count = 0;
-var computerChoice = Math.random();
-
-function preload() {
-  Computer_Scissors = loadImage('img/Scissors.png');
-  Computer_Rock = loadImage('img/Rock.png');
-  Computer_Paper = loadImage('img/Paper.png');
-  User_Scissors = loadImage('img/Scissors2.png');
-  User_Rock = loadImage('img/Rock2.png');
-  User_Paper = loadImage('img/Paper2.png');
-}
-
-function mix() {
-  computerChoice = Math.random();
-  if (0 < computerChoice && computerChoice <= 0.33) {
-    computerChoice = "rock";
-  } else if (0.34 < computerChoice && computerChoice < 0.66) {
-    computerChoice = "paper";
-  } else {
-    computerChoice = "scissors";
-  }
-}
-
-console.log(computerChoice);
-
-function setup() {
-  createCanvas(1000, 600);
-  background('skyblue');
-}
-
-function draw() {
-  noStroke();
-  menu();
-}
-
-function menu() {
-  fill(0);
-  textSize(20);
-  text(userName, 100, 100);
-  text("Computer", 800, 100);
-  if (overStartButton()) {
-    fill('blue');
-  } else {
-    fill('gray');
-  }
-  rect(700, 500, 100, 50);
-  fill(255);
-  textSize(18);
-  text("RESET", 710, 525);
-  fill('blue');
-  rect(50, 500, 100, 50);
-  fill(255);
-  text("Rock", 60, 525);
-  fill('red');
-  rect(200, 500, 100, 50);
-  fill(255);
-  text("Paper", 210, 525);
-  fill('green');
-  rect(350, 500, 100, 50);
-  fill(255);
-  text("Scissor", 360, 525);
-}
-
-function overStartButton() {
-  return mouseX > 700 && mouseX < 700 + 100 && mouseY > 500 && mouseY < 500 + 50;
-}
-
-function overRock() {
-  return mouseX > 50 && mouseX < 50 + 100 && mouseY > 500 && mouseY < 500 + 50;
-}
-
-function overPaper() {
-  return mouseX > 200 && mouseX < 200 + 100 && mouseY > 500 && mouseY < 500 + 50;
-}
-
-function overScissors() {
-  return mouseX > 350 && mouseX < 350 + 100 && mouseY > 500 && mouseY < 500 + 50;
-}
-
-function mousePressed() {
-  background('skyblue');
-  mix();
-  if (overRock()) {
-    if (computerChoice === "scissors") {
-      textSize(32);
-      text("user win!", 400, 100);
-      image(User_Rock, 0, 200);
-      image(Computer_Scissors, 500, 200);
-      if (user_count === 2) {
-
-      } else {
-        user_count += 1;
-        fill('red');
-        ellipse(user_count * 20 + 50, 50, 50, 50);
-      }
-    } else if (computerChoice === "paper") {
-      textSize(32);
-      text("computer win!", 400, 100);
-      image(User_Rock, 0, 200);
-      image(Computer_Paper, 500, 200);
-      if (computer_count === 2) {
-
-      } else {
-        computer_count += 1;
-        fill('red');
-        ellipse(computer_count * 20 + 550, 50, 50, 50);
-      }
-    } else {
-      textSize(32);
-      text("Result is a tie", 400, 100);
-      image(User_Rock, 0, 200);
-      image(Computer_Rock, 500, 200);
-    }
-  } else if (overPaper()) {
-    if (computerChoice === "rock") {
-      textSize(32);
-      text("user win!", 400, 100);
-      image(User_Paper, 0, 200);
-      image(Computer_Rock, 500, 200);
-      if (user_count === 2) {
-
-      } else {
-        user_count += 1;
-        fill('red');
-        ellipse(user_count * 20 + 50, 50, 50, 50);
-      }
-    } else if (computerChoice === "scissors") {
-      textSize(32);
-      text("computer win!", 400, 100);
-      image(User_Paper, 0, 200);
-      image(Computer_Scissors, 500, 200);
-      if (computer_count === 2) {
-
-      } else {
-        computer_count += 1;
-        fill('red');
-        ellipse(computer_count * 20 + 550, 50, 50, 50);
-      }
-    } else {
-      textSize(32);
-      text("Result is a tie", 400, 100);
-      image(User_Paper, 0, 200);
-      image(Computer_Paper, 500, 200);
-    }
-  } else if (overScissors()) {
-    if (computerChoice === "paper") {
-      textSize(32);
-      text("user win!", 400, 100);
-      image(User_Scissors, 0, 200);
-      image(Computer_Paper, 500, 200);
-      if (user_count === 2) {
-
-      } else {
-        user_count += 1;
-        fill('red');
-        ellipse(user_count * 20 + 50, 50, 50, 50);
-      }
-    } else if (computerChoice === "rock") {
-      textSize(32);
-      text("computer win!", 400, 100);
-      image(User_Scissors, 0, 200);
-      image(Computer_Rock, 500, 200);
-      if (computer_count === 2) {
-
-      } else {
-        computer_count += 1;
-        fill('red');
-        ellipse(user_count * 20 + 550, 50, 50, 50);
-      }
-    } else {
-      textSize(32);
-      text("Result is a tie", 400, 100);
-      image(User_Scissors, 0, 200);
-      image(Computer_Scissors, 500, 200);
-    }
-  }
-}
-*/
