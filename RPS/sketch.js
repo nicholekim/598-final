@@ -53,7 +53,10 @@ function draw() {
     fill('red'); // sets the filling color to red
     ellipse(i * 50 + 820, 100, 30, 30); // draws ellipse(s) based on the value of the user_count
   }
+  setInterval(confetti, 2500); // starts the win or lost confetti with 2.5-second delay
+}
 
+function confetti() {
   if (user_count == playCount) { // if user_count value equals to the value of playCount
     winSize = random(5, 500); // sets the size of the "win" sign on a random basis, between 5 and 500
     image(win, random(-100, 1200), random(-100, 600), winSize, winSize * (106 / 190)); // draws the "win" sign on a random basis on the canvas
@@ -70,7 +73,7 @@ function menu() {
   fill(255);
   textSize(30);
   text("Player 1: " + userName, 100, 50); // player 1 name
-  text("Player 2: Computer", 800, 50); // player 2 name
+  text("Player 2: Computer", 790, 50); // player 2 name
   if (overResetButton()) {
     fill('black');
   } else {
@@ -177,7 +180,8 @@ function mousePressed() {
       if (user_count == playCount - 1) {
         user_count++;
         textSize(50);
-        text("YOU WIN!", 500, 300);
+        fill('yellow');
+        text("YOU WIN!", 475, 300);
       } else {
         user_count++;
       }
@@ -192,6 +196,7 @@ function mousePressed() {
       if (computer_count == playCount - 1) {
         computer_count++;
         textSize(50);
+        fill('yellow');
         text("SORRY, YOU LOSE :(", 350, 300);
       } else {
         computer_count++;
@@ -216,7 +221,8 @@ function mousePressed() {
       if (user_count == playCount - 1) {
         user_count++;
         textSize(50);
-        text("YOU WIN!", 500, 300);
+        fill('yellow');
+        text("YOU WIN!", 475, 300);
       } else {
         user_count++;
       }
@@ -231,6 +237,7 @@ function mousePressed() {
       if (computer_count == playCount - 1) {
         computer_count++;
         textSize(50);
+        fill('yellow');
         text("SORRY, YOU LOSE :(", 350, 300);
       } else {
         computer_count++;
@@ -255,7 +262,8 @@ function mousePressed() {
       if (user_count == playCount - 1) {
         user_count++;
         textSize(50);
-        text("YOU WIN!", 500, 300);
+        fill('yellow');
+        text("YOU WIN!", 475, 300);
       } else {
         user_count++;
       }
@@ -270,6 +278,7 @@ function mousePressed() {
       if (computer_count == playCount - 1) {
         computer_count++;
         textSize(50);
+        fill('yellow');
         text("SORRY, YOU LOSE :(", 350, 300);
       } else {
         computer_count++;
