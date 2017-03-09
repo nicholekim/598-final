@@ -9,6 +9,9 @@ var playCount = prompt("How many times should the winner win? Enter a number.");
 var computerChoice;
 var user_count = 0;
 var computer_count = 0;
+var userX;
+var computerX;
+var dir = 1;
 
 function preload() {
   Scissors = loadImage('Scissors.png'); // image of scissors preloaded
@@ -42,31 +45,6 @@ function setup() {
   textFont('Chalkduster'); // Font of the texts set to Chalkduster
 }
 
-function draw() {
-  menu(); // Calls the menu function below
-
-  for (i = 0; i < user_count; i++) { // a for loop that moves from 0 till the value of the variable user_count
-    fill('red'); // sets the filling color to red
-    ellipse(i * 50 + 100, 100, 30, 30); // draws ellipse(s) based on the value of the user_count
-  }
-  for (i = 0; i < computer_count; i++) { // a for loop that moves from 0 till the value of the variable computer_count
-    fill('red'); // sets the filling color to red
-    ellipse(i * 50 + 820, 100, 30, 30); // draws ellipse(s) based on the value of the user_count
-  }
-  setInterval(confetti, 2500); // starts the win or lost confetti with 2.5-second delay
-}
-
-function confetti() {
-  if (user_count == playCount) { // if user_count value equals to the value of playCount
-    winSize = random(5, 400); // sets the size of the "win" sign on a random basis, between 5 and 500
-    image(win, random(-100, 1200), random(-100, 300), winSize, winSize * (106 / 190)); // draws the "win" sign on a random basis on the canvas
-  }
-  if (computer_count == playCount) { // if computer_count value equals to the value of playCount
-    lostSize = random(5, 400); // sets the size of the "lost" sign on a random basis, between 5 and 500
-    image(lost, random(-100, 1200), random(-100, 300), lostSize, lostSize * (119 / 190)); // draws the "lost" sign on a random basis on the canvas
-  }
-}
-
 // menu function that creates the player names, rock paper scissors, "Reset" button, and "How to Play" button.
 function menu() {
   noStroke();
@@ -89,22 +67,39 @@ function menu() {
     fill('gray'); // allows the color change when mouse is hovered
   }
   rect(840, 520, 150, 50);
-  fill(255);
-  text("HOW TO PLAY", 840 + 15, 520 + 30);
-  text("Choose your", 50, 500);
-  text("move!", 50, 525);
-  if (overRock()) {
-    image(Rock3, 150, 410 - 50, 119, 236);
-  } else {
-    image(Rock3, 150, 410, 119, 236);
-  }
+  image(Rock3, 150, 410, 119, 236);
   image(Paper3, 300, 410, 119, 236);
   image(Scissors3, 450, 410, 119, 236);
   textSize(14);
+  fill(255);
   text("Rock", 150 + 35, 520 + 40);
   text("Scissor", 450 + 30, 520 + 40);
   fill(0);
   text("Paper", 300 + 35, 520 + 40);
+  fill(255);
+  text("HOW TO PLAY", 840 + 20, 520 + 30);
+  text("Choose your", 50, 500);
+  text("move!", 50, 525);
+}
+
+function draw() {
+  menu(); // Calls the menu function below
+  for (i = 0; i < user_count; i++) { // a for loop that moves from 0 till the value of the variable user_count
+    fill('red'); // sets the filling color to red
+    ellipse(i * 50 + 100, 100, 30, 30); // draws ellipse(s) based on the value of the user_count
+  }
+  for (i = 0; i < computer_count; i++) { // a for loop that moves from 0 till the value of the variable computer_count
+    fill('red'); // sets the filling color to red
+    ellipse(i * 50 + 820, 100, 30, 30); // draws ellipse(s) based on the value of the user_count
+  }
+  if (user_count == playCount) { // if user_count value equals to the value of playCount
+    winSize = random(5, 400); // sets the size of the "win" sign on a random basis, between 5 and 500
+    image(win, random(-100, 1200), random(-100, 300), winSize, winSize * (106 / 190)); // draws the "win" sign on a random basis on the canvas
+  }
+  if (computer_count == playCount) { // if computer_count value equals to the value of playCount
+    lostSize = random(5, 400); // sets the size of the "lost" sign on a random basis, between 5 and 500
+    image(lost, random(-100, 1200), random(-100, 300), lostSize, lostSize * (119 / 190)); // draws the "lost" sign on a random basis on the canvas
+  }
 }
 
 // function that is called when "reset" button is pressed
@@ -185,7 +180,7 @@ function mousePressed() {
         user_count++;
         textSize(50);
         fill('yellow');
-        text("YOU WIN!", 475, 300);
+        text("YOU WIN!", 540, 540);
       } else {
         user_count++;
       }
@@ -201,7 +196,7 @@ function mousePressed() {
         computer_count++;
         textSize(50);
         fill('yellow');
-        text("SORRY, YOU LOSE :(", 350, 300);
+        text("SORRY, YOU LOSE :(", 540, 510);
       } else {
         computer_count++;
       }
@@ -226,7 +221,7 @@ function mousePressed() {
         user_count++;
         textSize(50);
         fill('yellow');
-        text("YOU WIN!", 475, 300);
+        text("YOU WIN!", 540, 540);
       } else {
         user_count++;
       }
@@ -242,7 +237,7 @@ function mousePressed() {
         computer_count++;
         textSize(50);
         fill('yellow');
-        text("SORRY, YOU LOSE :(", 350, 300);
+        text("SORRY, YOU LOSE :(", 540, 510);
       } else {
         computer_count++;
       }
@@ -267,7 +262,7 @@ function mousePressed() {
         user_count++;
         textSize(50);
         fill('yellow');
-        text("YOU WIN!", 475, 300);
+        text("YOU WIN!", 540, 540);
       } else {
         user_count++;
       }
@@ -283,7 +278,7 @@ function mousePressed() {
         computer_count++;
         textSize(50);
         fill('yellow');
-        text("SORRY, YOU LOSE :(", 350, 300);
+        text("SORRY, YOU LOSE :(", 540, 510);
       } else {
         computer_count++;
       }
