@@ -58,12 +58,12 @@ function draw() {
 
 function confetti() {
   if (user_count == playCount) { // if user_count value equals to the value of playCount
-    winSize = random(5, 500); // sets the size of the "win" sign on a random basis, between 5 and 500
-    image(win, random(-100, 1200), random(-100, 600), winSize, winSize * (106 / 190)); // draws the "win" sign on a random basis on the canvas
+    winSize = random(5, 400); // sets the size of the "win" sign on a random basis, between 5 and 500
+    image(win, random(-100, 1200), random(-100, 300), winSize, winSize * (106 / 190)); // draws the "win" sign on a random basis on the canvas
   }
   if (computer_count == playCount) { // if computer_count value equals to the value of playCount
-    lostSize = random(5, 500); // sets the size of the "lost" sign on a random basis, between 5 and 500
-    image(lost, random(-100, 1200), random(-100, 600), lostSize, lostSize * (119 / 190)); // draws the "lost" sign on a random basis on the canvas
+    lostSize = random(5, 400); // sets the size of the "lost" sign on a random basis, between 5 and 500
+    image(lost, random(-100, 1200), random(-100, 300), lostSize, lostSize * (119 / 190)); // draws the "lost" sign on a random basis on the canvas
   }
 }
 
@@ -93,7 +93,11 @@ function menu() {
   text("HOW TO PLAY", 840 + 15, 520 + 30);
   text("Choose your", 50, 500);
   text("move!", 50, 525);
-  image(Rock3, 150, 410, 119, 236);
+  if (overRock()) {
+    image(Rock3, 150, 410 - 50, 119, 236);
+  } else {
+    image(Rock3, 150, 410, 119, 236);
+  }
   image(Paper3, 300, 410, 119, 236);
   image(Scissors3, 450, 410, 119, 236);
   textSize(14);
