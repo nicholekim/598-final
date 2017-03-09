@@ -9,9 +9,6 @@ var playCount = prompt("How many times should the winner win? Enter a number.");
 var computerChoice;
 var user_count = 0;
 var computer_count = 0;
-var userX;
-var computerX;
-var dir = 1;
 
 function preload() {
   Scissors = loadImage('Scissors.png'); // image of scissors preloaded
