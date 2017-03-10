@@ -89,15 +89,35 @@ function draw() {
     fill('red'); // sets the filling color to red
     ellipse(i * 50 + 820, 100, 30, 30); // draws ellipse(s) based on the value of the user_count
   }
-  if (user_count == playCount) { // if user_count value equals to the value of playCount
-    winSize = random(5, 400); // sets the size of the "win" sign on a random basis, between 5 and 500
-    image(win, random(-100, 1200), random(-100, 300), winSize, winSize * (106 / 190)); // draws the "win" sign on a random basis on the canvas
-  }
-  if (computer_count == playCount) { // if computer_count value equals to the value of playCount
-    lostSize = random(5, 400); // sets the size of the "lost" sign on a random basis, between 5 and 500
-    image(lost, random(-100, 1200), random(-100, 300), lostSize, lostSize * (119 / 190)); // draws the "lost" sign on a random basis on the canvas
-  }
+  setInterval(function() {
+    if (user_count == playCount) { // if user_count value equals to the value of playCount
+      winSize = random(5, 400); // sets the size of the "win" sign on a random basis, between 5 and 500
+      image(win, random(-100, 1200), random(-100, 300), winSize, winSize * (106 / 190)); // draws the "win" sign on a random basis on the canvas
+    }
+    if (computer_count == playCount) { // if computer_count value equals to the value of playCount
+      lostSize = random(5, 400); // sets the size of the "lost" sign on a random basis, between 5 and 500
+      image(lost, random(-100, 1200), random(-100, 300), lostSize, lostSize * (119 / 190)); // draws the "lost" sign on a random basis on the canvas
+    }
+  }, 3000);
 }
+
+// function confetti() {
+//   var counter = 25;
+//   if (user_count == playCount) { // if user_count value equals to the value of playCount
+//     winSize = random(5, 400); // sets the size of the "win" sign on a random basis, between 5 and 500
+//     var showWinSign = setInterval(function() {
+//       image(win, random(-100, 1200), random(-100, 300), winSize, winSize * (106 / 190)); // draws the "win" sign on a random basis on the canvas
+//       counter--;
+//       if (counter === 0) {
+//         clearInterval(showWinSign);
+//       }
+//     }, 3000);
+//   }
+//   if (computer_count == playCount) { // if computer_count value equals to the value of playCount
+//     lostSize = random(5, 400); // sets the size of the "lost" sign on a random basis, between 5 and 500
+//     image(lost, random(-100, 1200), random(-100, 300), lostSize, lostSize * (119 / 190)); // draws the "lost" sign on a random basis on the canvas
+//   }
+// }
 
 // function that is called when "reset" button is pressed
 function reset() {
@@ -219,6 +239,7 @@ function mousePressed() {
         textSize(50);
         fill('yellow');
         text("YOU WIN!", 540, 540);
+
       } else {
         user_count++;
       }
