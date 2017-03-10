@@ -27,12 +27,12 @@ function preload() {
 // function that mixes up & executes the computer's move 
 function mix() {
   computerChoice = Math.random();
-  if (0 < computerChoice && computerChoice <= 0.33) {
+  if (0 < computerChoice && computerChoice <= 0.33) { // 30% possibility to get Rock
     computerChoice = "rock";
-  } else if (0.34 < computerChoice && computerChoice < 0.66) {
+  } else if (0.34 < computerChoice && computerChoice < 0.66) { // 30% possibility to get Paper
     computerChoice = "paper";
   } else {
-    computerChoice = "scissors";
+    computerChoice = "scissors"; // The rest (30%) to get Scissors
   }
 }
 
